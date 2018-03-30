@@ -116,20 +116,20 @@ function stripejs_refund_request() {
     $amount = $_POST['amount'];
 
     $current_user_id = get_current_user_id();
-    $content = 'Customer ID: '.$id.', Amount: '.$amount;
-    $status = stripejs_send_message($current_user_id,1,'Refund Request',$content);
+    $content = __('Customer ID: ').$id.__(', Amount: ').$amount;
+    $status = stripejs_send_message($current_user_id,1,__('Refund Request', 'stripejs'),$content);
     if ($status) {
         echo json_encode(
                 array(
                     'status'=>'success',
-                    'message'=>'Refund request for $'.$amount.' has been received. You will receive another confirmation email shortly.'
+                    'message'=>__('Refund request for $'.$amount.' has been received. You will receive another confirmation email shortly.', 'stripejs')
                 )
             );
     } else {
         echo json_encode(
                 array(
                     'status'=>'error',
-                    'message'=>'Refund request NOT received due to an unknown error occurring'
+                    'message'=>__('Refund request NOT received due to an unknown error occurring', 'stripejs')
                 )
             );
     }
@@ -143,19 +143,19 @@ function stripejs_cancel_subscription() {
 
     $current_user_id = get_current_user_id();
     $content = 'Subscription ID: '.$id;
-    $status = stripejs_send_message($current_user_id,1,'Subscription Cancellation Request',$content);
+    $status = stripejs_send_message($current_user_id,1,_('Subscription Cancellation Request', 'stripejs'),$content);
     if ($status) {
         echo json_encode(
                 array(
                     'status'=>'success',
-                    'message'=>'Subscription cancellation request has been received.'
+                    'message'=>__('Subscription cancellation request has been received.', 'stripejs')
                 )
             );
     } else {
         echo json_encode(
                 array(
                     'status'=>'error',
-                    'message'=>'Subscription request NOT received due to an unknown error occurring'
+                    'message'=>__('Subscription request NOT received due to an unknown error occurring', 'stripejs')
                 )
             );
     }

@@ -15,11 +15,11 @@ if ( is_admin() ){ // admin actions
 
 function add_stripejs_menu() {
 	//create new top-level menu
-	add_menu_page('StripeJS Settings', 'StripeJS Settings', 'administrator', __FILE__, 'stripejs_plugin_settings_page');
+	add_menu_page(__('StripeJS Settings', 'stripejs'), __('StripeJS Settings', 'stripejs'), 'administrator', __FILE__, 'stripejs_plugin_settings_page');
 	
-    add_submenu_page(__FILE__, 'Transactions', 'Transactions', 'administrator', 'edit.php?post_type=transaction'); 
+    add_submenu_page(__FILE__, __('Transactions', 'stripejs'), __('Transactions', 'stripejs'), 'administrator', 'edit.php?post_type=transaction'); 
 
-    add_submenu_page(__FILE__, 'Help', 'Help', 'administrator', 'admin.php?page=stripejs%2Findex.php&subpage=help'); 
+    add_submenu_page(__FILE__, __('Help', 'stripejs'), __('Help', 'stripejs'), 'administrator', 'admin.php?page=stripejs%2Findex.php&subpage=help'); 
 	
 	//call register settings function	
 	add_action( 'admin_init', 'register_stripejs_settings' );
@@ -46,7 +46,7 @@ function register_stripejs_settings() {
 
 function stripejs_textbox_callback($args) {  // Textbox Callback
     echo '<tr valign="top">';
-    echo '<th scope="row">Company Name</th>';
+    echo '<th scope="row">'._('Company Name', 'stripejs').'</th>';
     echo '<td><input type="text" id="'. $args[0] .'" name="'. $args[0] .'" value="" /></td>';
     echo '</tr>';
     //echo '<input type="text" id="'. $args[0] .'" name="'. $args[0] .'" value="' . $option . '" />';
@@ -78,10 +78,10 @@ function stripejs_plugin_settings_page() {
 
 		<video width="320" height="240" controls>
 			<source src="<?php echo plugins_url('stripejs/extra/help.mp4'); ?>" type="video/mp4">
-			Your browser does not support the video tag.
+			<?php _e('Your browser does not support the video tag.', 'stripejs'); ?>
 		</video> 		
 		
-		<p>For issues and change requests, visit <a href="https://githib.com/phkcorporation/stripejs" target="_blank">https://githib.com/phkcorporation/stripejs</a></p>
+		<p><?php _e('For issues and change requests, visit ', 'stripejs'); ?><a href="https://githib.com/phkcorporation/stripejs" target="_blank">https://githib.com/phkcorporation/stripejs</a></p>
 
 <?php else : ?>
 		<h1>StripeJS</h1>
@@ -89,55 +89,55 @@ function stripejs_plugin_settings_page() {
 		<form method="post" >
 			<table class="form-table">
 				<tr valign="top">
-				<th scope="row">Company Name</th>
+				<th scope="row"><?php _e('Company Name', 'stripejs'); ?></th>
 				<td><input type="text" name="stripe_company_name" value="<?php echo esc_attr( get_option('stripe_company_name') ); ?>" /></td>
 				</tr>
 
 				<tr valign="top">
-				<th scope="row">Company Logo</th>
+				<th scope="row"><?php _e('Company Logo', 'stripejs'); ?></th>
 				<td><input type="text" size="80" name="stripe_company_logo" value="<?php echo esc_attr( get_option('stripe_company_logo') ); ?>" /></td>
 				</tr>
                 <tr>
-                    <th>Stripe</th>
+                    <th><?php _e('Stripe'); ?></th>
                     <td>
                         <fieldset>
                             <table>
                                 <tr valign="top">
-                                <th scope="row">Stripe Live/Test</th>
+                                <th scope="row"><?php _e('Stripe Live/Test', 'stripejs'); ?></th>
                                 <td>
                                         <select name="stripe_live_test" >
-                                                <option value="" <?php echo($livetest == '' ? 'selected':''); ?>>Select</option>
-                                                <option value="test" <?php echo( $livetest == 'test' ? 'selected':'' ); ?>>Test</option>
-                                                <option value="live" <?php echo( $livetest == 'live' ? 'selected':'' ); ?>>Live</option>
+                                                <option value="" <?php echo($livetest == '' ? 'selected':''); ?>><?php _e('Select', 'stripejs'); ?></option>
+                                                <option value="test" <?php echo( $livetest == 'test' ? 'selected':'' ); ?>><?php _e('Test', 'stripejs'); ?></option>
+                                                <option value="live" <?php echo( $livetest == 'live' ? 'selected':'' ); ?>><?php _e('Live', 'stripejs'); ?></option>
                                         </select>
                                 </td>
                                 </tr>
                                 <tr>
-                                    <th>Stripe API Version</th>
+                                    <th><?php _e('Stripe API Version', 'stripejs'); ?></th>
                                     <td><input type="text" size="80" name="stripe_api_version" id="stripe_api_version" value="<?php echo esc_attr(get_option('stripe_api_version')); ?>" /></td>
                                 </tr>
                                 <tr>
-                                    <th>Stripe CheckOut JS Function</th>
+                                    <th><?php _e('Stripe CheckOut JS Function', 'stripejs'); ?></th>
                                     <td><input type="text" size="80" name="stripe-checkout-jsfunc" id="stripe-checkout-jsfunc" value="<?php echo esc_attr(get_option('stripe_checkout_jsfunc')); ?>" /></td>
                                 </tr>
 
                                 <tr valign="top">
-                                <th scope="row">Stripe Test Secret Key</th>
+                                <th scope="row"><?php _e('Stripe Test Secret Key', 'stripejs'); ?></th>
                                 <td><input type="text" size="80" name="stripe_test_secret_key" value="<?php echo esc_attr( get_option('stripe_test_secret_key') ); ?>" /></td>
                                 </tr>
 
                                 <tr valign="top">
-                                <th scope="row">Stripe Test Published Key</th>
+                                <th scope="row"><?php _e('Stripe Test Published Key', 'stripejs'); ?></th>
                                 <td><input type="text" size="80" name="stripe_test_published_key" value="<?php echo esc_attr( get_option('stripe_test_published_key') ); ?>" /></td>
                                 </tr>
 
                                 <tr valign="top">
-                                <th scope="row">Stripe Live Secret Key</th>
+                                <th scope="row"><?php _e('Stripe Live Secret Key', 'stripejs'); ?></th>
                                 <td><input type="text" size="80" name="stripe_live_secret_key" value="<?php echo esc_attr( get_option('stripe_live_secret_key') ); ?>" /></td>
                                 </tr>
 
                                 <tr valign="top">
-                                <th scope="row">Stripe Live Published Key</th>
+                                <th scope="row"><?php _e('Stripe Live Published Key', 'stripejs'); ?></th>
                                 <td><input type="text" size="80" name="stripe_live_published_key" value="<?php echo esc_attr( get_option('stripe_live_published_key') ); ?>" /></td>
                                 </tr>
                             </table>
@@ -145,12 +145,12 @@ function stripejs_plugin_settings_page() {
                     </td>
                 </tr>
 				<tr valign="top">
-				    <th scope="row">Success Page Callback</th>
+				    <th scope="row"><?php _e('Success Page Callback', 'stripejs'); ?></th>
 				    <td><input type="text" size="80" name="stripe_success_callback" value="<?php echo esc_attr( get_option('stripe_success_callback') ); ?>" /></td>
 				</tr>
 
 				<tr valign="top">
-				    <th scope="row">Failure Page Callback</th>
+				    <th scope="row"><?php _e('Failure Page Callback', 'stripejs'); ?></th>
 				    <td><input type="text" size="80" name="stripe_failure_callback" value="<?php echo esc_attr( get_option('stripe_failure_callback') ); ?>" /></td>
 				</tr>
 			</table>

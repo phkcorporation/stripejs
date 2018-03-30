@@ -7,6 +7,8 @@
  * Author: PHK Corporation
  * Author URI: https://phkcorp.com 
  * License: MIT
+ * Text Domain: stripejs
+ * Domain Path: /languages
  */
 
 require dirname(__FILE__).'/stripe/init.php';

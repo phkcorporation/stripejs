@@ -37,11 +37,11 @@ function manage_columns_for_transaction($columns) {
     unset($columns['author']);
     unset($columns['date']);
     
-    $columns['email'] = '<b style="color:blue;">Customer Email</b>';
-    $columns['amount'] = '<b style="color:green;">Amount</b>';
-    $columns['txdate'] = '<b style="color:orange;">Transaction Date</b>';
-    $columns['txncode'] = '<b>Transaction Code</b>';
-    $columns['balancetx'] = '<b>Balance Transaction</b>';
+    $columns['email'] = '<b style="color:blue;">'.__('Customer Email', 'stripejs').'</b>';
+    $columns['amount'] = '<b style="color:green;">'.__('Amount', 'stripejs').'</b>';
+    $columns['txdate'] = '<b style="color:orange;">'.__('Transaction Date', 'stripejs').'</b>';
+    $columns['txncode'] = '<b>'.__('Transaction Code', 'stripejs').'</b>';
+    $columns['balancetx'] = '<b>'.__('Balance Transaction', 'stripejs').'</b>';
     
     return $columns;
 }
@@ -122,19 +122,19 @@ function display_image_settings()
 
     ?>
         <div>
-            <label for="stripejs-image-width">Width</label>
+            <label for="stripejs-image-width"><?php _e('Width', 'stripejs'); ?></label>
             <input name="stripejs-image-width" type="number" value="<?php echo get_post_meta($post->ID, "stripejs-image-width")[0]; ?>" placeholder="512" />
-            <label for="stripejs-image-height">Height</label>
+            <label for="stripejs-image-height"><?php _e('Height', 'stripejs'); ?></label>
             <input name="stripejs-image-height" type="number" value="<?php echo get_post_meta($post->ID, "stripejs-image-height")[0]; ?>" placeholder="512" />
-			<i>Default values shown as (512,512)</i>,
-			&nbsp;Default Image:&nbsp; 
+			<i><?php _e('Default values shown as (512,512)', 'stripejs'); ?></i>,
+			&nbsp;<?php _e('Default Image'); ?>:&nbsp; 
 			<span id="default-image-success" style="display:none;">
 				<img src="<?php echo plugins_url('/stripejs/images/payment-received.jpg'); ?>" width="30" height="30" />
 			</span>
 			<span id="default-image-failure" style="display:none;">
 				<img src="<?php echo plugins_url('/stripejs/images/payment-failed.jpg'); ?>" width="30" height="30" />
 			</span>
-			&nbsp;(<i>When a <b>featured image</b> has been added, will override this image.</i>)
+			&nbsp;(<?php _e('<i>When a <b>featured image</b> has been added, will override this image.</i>', 'stripejs');?>)
         </div>
     <?php  
 }

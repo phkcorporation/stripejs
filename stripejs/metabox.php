@@ -21,7 +21,7 @@ function add_stripejs_image_meta()
         if($pageTemplate == 'payment-success.php' || $pageTemplate == 'payment-failed.php') {
 			add_meta_box(
 				'stripejs_image_meta', // $id
-				'StripeJS Payment Success/Failure Image Size Settings', // $title
+				__('StripeJS Payment Success/Failure Image Size Settings', 'stripejs'), // $title
 				'display_image_settings', // $callback
 				'post', // $page
 				'normal', // $context
@@ -34,7 +34,7 @@ function add_stripejs_image_meta()
 function add_stripejs_post_template() {
 		add_meta_box(
                     'postparentdiv',
-                    __('StripeJS Custom Template'),
+                    __('StripeJS Custom Template', 'stripejs'),
                     'stripejs_custom_post_template_meta_box',
                     'post',
                     'side', 
@@ -47,12 +47,12 @@ function stripejs_custom_post_template_meta_box($post) {
 	if ( $post->post_type != 'page' ) {
 		$template = get_post_meta($post->ID,'_post_template',true);
 	?>
-		<label class="screen-reader-text" for="post_template"><?php _e('Post Template') ?></label>
+		<label class="screen-reader-text" for="post_template"><?php _e('Post Template', 'stripejs') ?></label>
 		<select name="post_template" id="post_template">
-			<option value='default'><?php _e('Default Template'); ?></option>
+			<option value='default'><?php _e('Default Template', 'stripejs'); ?></option>
 			<?php stripejs_custom_post_template_dropdown($template); ?>
 		</select>
-		<p><i><?php _e( 'Some themes have custom templates you can use for single posts template selecting from dropdown.'); ?></i></p>
+		<p><i><?php _e( 'Some themes have custom templates you can use for single posts template selecting from dropdown.', 'stripejs'); ?></i></p>
 	<?php
 	}
 }

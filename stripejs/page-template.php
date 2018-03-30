@@ -76,9 +76,9 @@ class StripeJS_PageTemplater {
 
 		// Add your templates to this array.
 		$this->templates = array(
-			'payment-success.php' => 'StripeJS Payment Success',
-			'payment-failed.php' => 'StripeJS Payment Failed',
-			'single-transaction.php' => 'StripeJS Payment Transaction',
+			'payment-success.php' => __('StripeJS Payment Success', 'stripejs'),
+			'payment-failed.php' => __('StripeJS Payment Failed', 'stripejs'),
+			'single-transaction.php' => __('StripeJS Payment Transaction', 'stripejs'),
 		);
 			
 	} 

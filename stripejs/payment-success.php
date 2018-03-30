@@ -40,10 +40,10 @@ if (!empty($featured_image)) {
 <?php get_header(); ?>
     <div class="view" id="mainview">
         <header>
-            <h1>Payment Successful</h1>
+            <h1><?php echo __('Payment Successful', 'stripejs'); ?></h1>
         </header>
         <div class="pages">
-            <div class="panel" data-title="Payment Successful" id="success-payment" selected="true">
+            <div class="panel" data-title="<?php echo __('Payment Successful', 'stripejs'); ?>" id="success-payment" selected="true">
                 <center>
                         <div id="primary" class="site-content">
                           <div id="content" role="main">

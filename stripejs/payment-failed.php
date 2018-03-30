@@ -37,10 +37,10 @@ if (!empty($featured_image)) {
 <?php get_header(); ?>
     <div class="view" id="mainview">
         <header>
-            <h1>Payment Failed</h1>
+            <h1><?php echo __('Payment Failed', 'stripejs'); ?></h1>
         </header>
         <div class="pages">
-            <div class="panel" data-title="Payment Failed" id="failed-payment" selected="true">
+            <div class="panel" data-title="<?php echo __('Payment Failed', 'stripejs'); ?>" id="failed-payment" selected="true">
                 <center>
                     <div id="primary" class="site-content">
                         <div id="content" role="main">

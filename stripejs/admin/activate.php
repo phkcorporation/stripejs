@@ -14,12 +14,12 @@ function cptui_register_my_cpts_transaction() {
 	 */
 
 	$labels = array(
-		"name" => __( 'Transaction', 'twentyseventeen' ),
-		"singular_name" => __( 'Transactions', 'twentyseventeen' ),
+		"name" => __( 'Transaction', 'stripejs' ),
+		"singular_name" => __( 'Transactions', 'stripejs' ),
 	);
 
 	$args = array(
-		"label" => __( 'Transaction', 'twentyseventeen' ),
+		"label" => __( 'Transaction', 'stripejs' ),
 		"labels" => $labels,
 		"description" => "",
 		"public" => true,
