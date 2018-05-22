@@ -11,3 +11,6 @@ You must have permissions set to permit uploads and directory creation on your h
 # Manual
 
 The plugin manual will be made available on Amazon and Barnes & Noble.
+
+~Current Version:4.3.0~
+
